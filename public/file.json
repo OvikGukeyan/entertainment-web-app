@@ -1,0 +1,43 @@
+[
+    {
+        "id": 0,
+        "image": "./assets/thumbnails/beyond-earth/trending/large.jpg",
+        "name": "Beyond Earth",
+        "year": 2019,
+        "category": "Movie",
+        "rating": "PG"
+    },
+    {
+        "id": 1,
+        "image": "./assets/thumbnails/bottom-gear/trending/large.jpg",
+        "name": "Bottom Gear",
+        "year": 2021,
+        "category": "Movie",
+        "rating": "PG"
+    },
+    {
+        "id": 2,
+        "image": "./assets/thumbnails/undiscovered-cities/trending/large.jpg",
+        "name": "Undiscovered Cities",
+        "year": 2019,
+        "category": "TV Series",
+        "rating": "e"
+    },
+    {
+        "id": 3,
+        "image": "./assets/thumbnails/1998/trending/large.jpg",
+        "name": "1998",
+        "year": 2021,
+        "category": "Movie",
+        "rating": "18+"
+    },
+    {
+        "id": 4,
+        "image": "./assets/thumbnails/dark-side-of-the-moon/trending/large.jpg" ,
+        "name": "Dark Side Of The Moon",
+        "year": 2018,
+        "category": "TV Series",
+        "rating": "PG"
+    },
+
+]
