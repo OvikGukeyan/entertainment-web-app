@@ -1,156 +1,24 @@
 import React from 'react'
+import FilmBlock from './Film/FilmBlock'
+import RecFilmLoader from './Film/RecFilmLoader'
 
-const Recomended: React.FC = () => {
+type RecomendedProps = {
+  films: {
+    id: number
+    image: string
+    name: string
+    year: number
+    category: string
+    rating: string
+  }[]
+}
+
+const Recomended: React.FC<RecomendedProps> = ({films}) => {
   return (
     <div className="recomended">
       <h2>Recommended for you</h2>
       <div className="recom-titles">
-        <div className="rec-title">
-          <div className="rec-bookmark">
-            <img src="./assets/icon-bookmark-empty.svg" alt="bookmark" />
-          </div>
-          <img className="rec-img" src="./assets/thumbnails/the-great-lands/regular/large.jpg" alt=" " />
-          <div className="rec-info">
-            <div className="info">
-              <p>2019 •</p>
-
-              <img src="./assets/icon-category-movie.svg" alt=" " />
-              <p>Movie •</p>
-
-              <p>PG</p>
-            </div>
-            <h3 className="slide-title">Beyond Earth</h3>
-          </div>
-        </div>
-        <div className="rec-title">
-          <div className="rec-bookmark">
-            <img src="./assets/icon-bookmark-empty.svg" alt="bookmark" />
-          </div>
-          <img className="rec-img" src="./assets/thumbnails/the-great-lands/regular/large.jpg" alt=" " />
-          <div className="rec-info">
-            <div className="info">
-              <p>2019 •</p>
-
-              <img src="./assets/icon-category-movie.svg" alt=" " />
-              <p>Movie •</p>
-
-              <p>PG</p>
-            </div>
-            <h3 className="slide-title">Beyond Earth</h3>
-          </div>
-        </div><div className="rec-title">
-          <div className="rec-bookmark">
-            <img src="./assets/icon-bookmark-empty.svg" alt="bookmark" />
-          </div>
-          <img className="rec-img" src="./assets/thumbnails/the-great-lands/regular/large.jpg" alt=" " />
-          <div className="rec-info">
-            <div className="info">
-              <p>2019 •</p>
-
-              <img src="./assets/icon-category-movie.svg" alt=" " />
-              <p>Movie •</p>
-
-              <p>PG</p>
-            </div>
-            <h3 className="slide-title">Beyond Earth</h3>
-          </div>
-        </div><div className="rec-title">
-          <div className="rec-bookmark">
-            <img src="./assets/icon-bookmark-empty.svg" alt="bookmark" />
-          </div>
-          <img className="rec-img" src="./assets/thumbnails/the-great-lands/regular/large.jpg" alt=" " />
-          <div className="rec-info">
-            <div className="info">
-              <p>2019 •</p>
-
-              <img src="./assets/icon-category-movie.svg" alt=" " />
-              <p>Movie •</p>
-
-              <p>PG</p>
-            </div>
-            <h3 className="slide-title">Beyond Earth</h3>
-          </div>
-        </div><div className="rec-title">
-          <div className="rec-bookmark">
-            <img src="./assets/icon-bookmark-empty.svg" alt="bookmark" />
-          </div>
-          <img className="rec-img" src="./assets/thumbnails/the-great-lands/regular/large.jpg" alt=" " />
-          <div className="rec-info">
-            <div className="info">
-              <p>2019 •</p>
-
-              <img src="./assets/icon-category-movie.svg" alt=" " />
-              <p>Movie •</p>
-
-              <p>PG</p>
-            </div>
-            <h3 className="slide-title">Beyond Earth</h3>
-          </div>
-        </div><div className="rec-title">
-          <div className="rec-bookmark">
-            <img src="./assets/icon-bookmark-empty.svg" alt="bookmark" />
-          </div>
-          <img className="rec-img" src="./assets/thumbnails/the-great-lands/regular/large.jpg" alt=" " />
-          <div className="rec-info">
-            <div className="info">
-              <p>2019 •</p>
-
-              <img src="./assets/icon-category-movie.svg" alt=" " />
-              <p>Movie •</p>
-
-              <p>PG</p>
-            </div>
-            <h3 className="slide-title">Beyond Earth</h3>
-          </div>
-        </div><div className="rec-title">
-          <div className="rec-bookmark">
-            <img src="./assets/icon-bookmark-empty.svg" alt="bookmark" />
-          </div>
-          <img className="rec-img" src="./assets/thumbnails/the-great-lands/regular/large.jpg" alt=" " />
-          <div className="rec-info">
-            <div className="info">
-              <p>2019 •</p>
-
-              <img src="./assets/icon-category-movie.svg" alt=" " />
-              <p>Movie •</p>
-
-              <p>PG</p>
-            </div>
-            <h3 className="slide-title">Beyond Earth</h3>
-          </div>
-        </div><div className="rec-title">
-          <div className="rec-bookmark">
-            <img src="./assets/icon-bookmark-empty.svg" alt="bookmark" />
-          </div>
-          <img className="rec-img" src="./assets/thumbnails/the-great-lands/regular/large.jpg" alt=" " />
-          <div className="rec-info">
-            <div className="info">
-              <p>2019 •</p>
-
-              <img src="./assets/icon-category-movie.svg" alt=" " />
-              <p>Movie •</p>
-
-              <p>PG</p>
-            </div>
-            <h3 className="slide-title">Beyond Earth</h3>
-          </div>
-        </div><div className="rec-title">
-          <div className="rec-bookmark">
-            <img src="./assets/icon-bookmark-empty.svg" alt="bookmark" />
-          </div>
-          <img className="rec-img" src="./assets/thumbnails/the-great-lands/regular/large.jpg" alt=" " />
-          <div className="rec-info">
-            <div className="info">
-              <p>2019 •</p>
-
-              <img src="./assets/icon-category-movie.svg" alt=" " />
-              <p>Movie •</p>
-
-              <p>PG</p>
-            </div>
-            <h3 className="slide-title">Beyond Earth</h3>
-          </div>
-        </div>
+     {films.length ? films.map(obj => <FilmBlock {...obj} className={'rec-title'}/>): [...Array(8)].map((_, index) => <RecFilmLoader key={index} />)}
       </div>
     </div>
   )

@@ -45,6 +45,11 @@
             color: #FFFFFF;
         }
 
+        input:focus {
+            outline: none;
+            border-bottom: 1px solid #ffff;
+        }
+
         button {
             width: 336px;
             height: 48px;
@@ -56,8 +61,16 @@
             line-height: 19px;
             color: #FFFFFF;
             cursor: pointer;
+
+            &:hover {
+                background-color: #FFFFFF;
+                color: #161D2F;
+            
+            }
+    
         }
 
+        
         p {
             margin: 0 auto 40px auto;
             font-weight: 300;
@@ -79,24 +92,6 @@
 
 
 
-
-
-
-
-
-
-input:focus {
-    outline: none;
-    border-bottom: 1px solid #ffff;
-}
-
-
-
-button:hover {
-    background-color: #FFFFFF;
-    color: #161D2F;
-
-}
 
 
 
