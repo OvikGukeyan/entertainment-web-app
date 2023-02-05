@@ -1,12 +1,15 @@
 import axios from 'axios';
 import React, {useEffect, useState} from 'react'
 import { SearchBar, Trending, Recomended, Header } from '../components';
-
-
+import { fetchFilms, selectFilms } from '../redux/slices/filmsSlice';
+import { useSelector } from 'react-redux';
+import { useAppDispatch } from '../redux/store';
 
 const Home: React.FC = () => {
     const [trendings, setTrendings] = useState([]);
-    const [films, setFilms] = useState([]);
+    const {filmsItems, isLoaded} = useSelector(selectFilms)
+    const dispatch = useAppDispatch()
+
 
 
     useEffect(() => {
@@ -15,8 +18,7 @@ const Home: React.FC = () => {
     },[])
 
     useEffect(() => {
-        axios.get('https://63dafdb7b8e69785e479f6d2.mockapi.io/films')
-        .then(res => setFilms(res.data))
+        dispatch(fetchFilms())
     },[])
 
     
@@ -27,12 +29,13 @@ const Home: React.FC = () => {
             <Header />
             <div className="content">
                 <SearchBar />
-                <Trending trendings={trendings}/>
-                <Recomended films={films} />
+                <Trending trendings={trendings} isLoaded={isLoaded}/>
+                <Recomended films={filmsItems} isLoaded={isLoaded}/>
             </div>
         </>
 
     )
 }
+
 
 export default Home;

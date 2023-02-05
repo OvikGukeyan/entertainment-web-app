@@ -11,14 +11,17 @@ type RecomendedProps = {
     category: string
     rating: string
   }[]
+  isLoaded: boolean
 }
 
-const Recomended: React.FC<RecomendedProps> = ({films}) => {
+const Recomended: React.FC<RecomendedProps> = ({films, isLoaded}) => {
+
+
   return (
     <div className="recomended">
       <h2>Recommended for you</h2>
-      <div className="recom-titles">
-     {films.length ? films.map(obj => <FilmBlock {...obj} className={'rec-title'}/>): [...Array(8)].map((_, index) => <RecFilmLoader key={index} />)}
+      <div className="recom-films">
+     {isLoaded ? films.map(obj => <FilmBlock {...obj} className={'slide__recom'}/>): [...Array(8)].map((_, index) => <RecFilmLoader key={index} />)}
       </div>
     </div>
   )

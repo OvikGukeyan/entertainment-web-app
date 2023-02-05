@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 
 type FilmBlockProps = {
     id: number
@@ -10,7 +10,7 @@ type FilmBlockProps = {
     className: string
 }
 
-const FilmBlock: React.FC<FilmBlockProps> = ({id, image, name, year, category, rating, className}) => {
+const FilmBlock: React.FC<FilmBlockProps> = ({ id, image, name, year, category, rating, className }) => {
     const [bookmarked, setBookmarked] = useState(false);
 
     const togleBookmark = () => {
@@ -20,10 +20,17 @@ const FilmBlock: React.FC<FilmBlockProps> = ({id, image, name, year, category, r
     return (
         <div className={className}>
             <div onClick={togleBookmark} className="bookmark">
-                <img  src={bookmarked ? "./assets/icon-bookmark-full.svg" : "./assets/icon-bookmark-empty.svg"} alt="bookmark" />
+                <img src={bookmarked ? "./assets/icon-bookmark-full.svg" : "./assets/icon-bookmark-empty.svg"} alt="bookmark" />
             </div>
-            <img className={className === 'rec-title' ? "rec-img" : "slide-img"} src={image} alt=" " />
-            <div className={className === 'rec-title' ? '' : "slide-info"}>
+            <div className='icon-play-wrapper'>
+                <div className='icon-play'>
+                    <img className='play' src="./assets/icon-play.svg" alt=" " />
+                    <p>Play</p>
+                </div>
+            </div>
+            
+            <img className={className === 'slide__recom' ? "rec-img" : "slide-img"} src={image} alt=" " />
+            <div  className="slide-info">
                 <div className="info">
                     <p>{year} •</p>
 
