@@ -1,6 +1,8 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useCallback } from 'react'
 import { useDispatch } from 'react-redux';
 import { setSearchValue } from '../redux/slices/filterSlice';
+import debounce from 'lodash.debounce';
+
 
 const SearchBar: React.FC = () => {
   const [serchValueLocal, setSearchValueLocal] = useState('');
@@ -13,9 +15,15 @@ const SearchBar: React.FC = () => {
     inputRef.current?.focus();
   }
 
+  const updateSearchValue = useCallback(
+    debounce((value) => {
+      dispatch(setSearchValue(value))
+    }, 1000),
+  [])
+
   const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValueLocal(e.target.value);
-    dispatch(setSearchValue(e.target.value))
+    updateSearchValue(e.target.value);
   }
 
   return (

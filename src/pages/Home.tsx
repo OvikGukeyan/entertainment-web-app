@@ -4,12 +4,13 @@ import { SearchBar, Trending, Recomended, Header } from '../components';
 import { fetchFilms, selectFilms } from '../redux/slices/filmsSlice';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '../redux/store';
+import { selectFilters } from '../redux/slices/filterSlice';
 
 const Home: React.FC = () => {
     const [trendings, setTrendings] = useState([]);
-    const {filmsItems, isLoaded} = useSelector(selectFilms)
-    const dispatch = useAppDispatch()
-
+    const {filmsItems, isLoaded} = useSelector(selectFilms);
+    const dispatch = useAppDispatch();
+    const {searchValue} = useSelector(selectFilters);
 
 
     useEffect(() => {
@@ -18,8 +19,8 @@ const Home: React.FC = () => {
     },[])
 
     useEffect(() => {
-        dispatch(fetchFilms())
-    },[])
+        dispatch(fetchFilms(searchValue))
+    },[searchValue])
 
     
 

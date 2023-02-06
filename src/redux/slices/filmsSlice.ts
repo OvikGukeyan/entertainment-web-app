@@ -2,8 +2,8 @@ import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 import axios from "axios";
 import { RootState } from "../store";
 
-export const fetchFilms = createAsyncThunk('films/fetchFilms', async () => {
-    const {data} = await axios.get<filmType[]>('https://63dafdb7b8e69785e479f6d2.mockapi.io/films')
+export const fetchFilms = createAsyncThunk('films/fetchFilms', async (searchValue: string) => {
+    const {data} = await axios.get<filmType[]>(`https://63dafdb7b8e69785e479f6d2.mockapi.io/films?${searchValue ? `search=${searchValue}` : ''}`)
     return data;
 });
 

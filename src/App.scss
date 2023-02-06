@@ -219,7 +219,10 @@ h2 {
 
     .icon-play-wrapper {
       justify-content: center;
-      margin-top: 60px;
+
+      .icon-play{
+        margin-top: 60px;
+      }
     }
 
   }
