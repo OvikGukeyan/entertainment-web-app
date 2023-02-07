@@ -1,14 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 
-type filtersSliceState = {
+export type filtersSliceState = {
     searchValue: string
-    category: string
+    category: string | null
+    currentPage: number
 }
 
 const initialState = {
     searchValue: '',
     category: null,
+    currentPage: 1
 }
 
 const filterSlice = createSlice({
@@ -20,10 +22,13 @@ const filterSlice = createSlice({
         },
         setCategory: (state, action) => {
             state.category = action.payload
+        },
+        setCurrentPage: (state, action) => {
+            state.currentPage = action.payload
         }
     }
 });
 
-export const {setSearchValue, setCategory} =  filterSlice.actions;
+export const {setSearchValue, setCategory, setCurrentPage} =  filterSlice.actions;
 export const selectFilters = (state: RootState) => state.filters;
 export default filterSlice.reducer;

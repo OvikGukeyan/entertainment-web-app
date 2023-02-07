@@ -1,0 +1,51 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    min-width: 100px;
+    background-color: #161D2F;
+    border-radius: 20px;
+    align-items: center;
+    margin: 0 35px 35px 0;
+  
+    .logo {
+      margin: 35px 0 75px 0;
+      cursor: pointer;
+    }
+  
+    nav {
+      display: flex;
+      flex-direction: column;
+      height: 200px;
+      width: 20px;
+      justify-content: space-between;
+  
+      svg {
+        cursor: pointer;
+        fill: #5a698f;
+  
+        &:hover {
+          fill: #fff;
+        }
+  
+      }
+  
+      .activeSvg {
+        fill: #FC4747;
+      }
+    }
+  
+    .login {
+      margin-bottom: 35px;
+      cursor: pointer;
+      margin-top: auto;
+  
+      img {
+        height: 40px;
+        width: 40px;
+  
+      }
+    }
+  }
+  
+  

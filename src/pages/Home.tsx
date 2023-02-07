@@ -1,16 +1,16 @@
 import axios from 'axios';
 import React, {useEffect, useState} from 'react'
-import { SearchBar, Trending, Recomended, Header } from '../components';
+import { SearchBar, Trending, Recomended, Header, Pagination } from '../components';
 import { fetchFilms, selectFilms } from '../redux/slices/filmsSlice';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '../redux/store';
-import { selectFilters } from '../redux/slices/filterSlice';
+import { filtersSliceState, selectFilters, setCurrentPage } from '../redux/slices/filterSlice';
 
 const Home: React.FC = () => {
     const [trendings, setTrendings] = useState([]);
     const {filmsItems, isLoaded} = useSelector(selectFilms);
     const dispatch = useAppDispatch();
-    const {searchValue} = useSelector(selectFilters);
+    const {searchValue, category, currentPage} = useSelector(selectFilters);
 
 
     useEffect(() => {
@@ -19,10 +19,13 @@ const Home: React.FC = () => {
     },[])
 
     useEffect(() => {
-        dispatch(fetchFilms(searchValue))
-    },[searchValue])
+        const options: filtersSliceState = {searchValue, category, currentPage}
+        dispatch(fetchFilms(options))
+    },[searchValue, category, currentPage])
 
-    
+    const onChangePage = (value: number) => {
+        dispatch(setCurrentPage(value))
+    }
 
 
     return (
@@ -32,6 +35,7 @@ const Home: React.FC = () => {
                 <SearchBar />
                 <Trending trendings={trendings} isLoaded={isLoaded}/>
                 <Recomended films={filmsItems} isLoaded={isLoaded}/>
+                <Pagination onChangePage={onChangePage} currentPage={currentPage}/>
             </div>
         </>
 
