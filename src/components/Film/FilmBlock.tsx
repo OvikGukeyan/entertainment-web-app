@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { selectBookmarks, setBookmarkItems } from '../../redux/slices/bookmarksSlice'
 
 type FilmBlockProps = {
     id: number
@@ -12,15 +14,18 @@ type FilmBlockProps = {
 
 const FilmBlock: React.FC<FilmBlockProps> = ({ id, image, name, year, category, rating, className }) => {
     const [bookmarked, setBookmarked] = useState(false);
+    const dispatch = useDispatch();
+    const {bookmarkItems} = useSelector(selectBookmarks);
 
-    const togleBookmark = () => {
-        setBookmarked(!bookmarked)
+    const onBookmarkClick = () => {
+        setBookmarked(!bookmarked);
+        dispatch(setBookmarkItems({ id, image, name, year, category, rating, className }))
     }
 
     return (
         <div className={className}>
-            <div onClick={togleBookmark} className="bookmark">
-                <img src={bookmarked ? "./assets/icon-bookmark-full.svg" : "./assets/icon-bookmark-empty.svg"} alt="bookmark" />
+            <div onClick={onBookmarkClick} className="bookmark">
+                <img src={bookmarkItems.find(obj => obj.id === id) ? "./assets/icon-bookmark-full.svg" : "./assets/icon-bookmark-empty.svg"} alt="bookmark" />
             </div>
             <div className='icon-play-wrapper'>
                 <div className='icon-play'>

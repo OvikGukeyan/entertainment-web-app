@@ -1,0 +1,28 @@
+import { createSlice } from "@reduxjs/toolkit";
+import { RootState } from "../store";
+import { filmType } from "./filmsSlice";
+
+type bookmarksSliceState = {
+    bookmarkItems: filmType[]
+}
+
+const initialState: bookmarksSliceState = {
+    bookmarkItems: []
+}
+
+const bookmarksSlice = createSlice({
+    name: 'bookmarks',
+    initialState,
+    reducers: {
+        setBookmarkItems: (state, action) => {
+            !state.bookmarkItems.find(obj => obj.id === action.payload.id) ?
+                state.bookmarkItems.push(action.payload) :
+                state.bookmarkItems = state.bookmarkItems.filter(obj => obj.id !== action.payload.id)
+
+        }
+    }
+});
+
+export const selectBookmarks = (state: RootState) => state.bookmarks;
+export const { setBookmarkItems } = bookmarksSlice.actions;
+export default bookmarksSlice.reducer;

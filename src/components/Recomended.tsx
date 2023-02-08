@@ -1,16 +1,9 @@
-import React from 'react'
-import FilmBlock from './Film/FilmBlock'
-import RecFilmLoader from './Film/RecFilmLoader'
+import React from 'react';
+import { filmType } from '../redux/slices/filmsSlice';
+import {FilmBlock, RecFilmLoader} from '../components';
 
 type RecomendedProps = {
-  films: {
-    id: number
-    image: string
-    name: string
-    year: number
-    category: string
-    rating: string
-  }[]
+  films: filmType[]
   isLoaded: boolean
 }
 

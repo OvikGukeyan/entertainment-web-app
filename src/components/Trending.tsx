@@ -1,21 +1,19 @@
-import React from 'react'
-import FilmBlock from './Film/FilmBlock'
-import TrendFilmLoader from './Film/TrendFilmLoader'
+import React, { useState, useEffect } from 'react';
+import {FilmBlock, TrendFilmLoader} from './';
+import axios from 'axios';
+import { filmType } from '../redux/slices/filmsSlice';
 
 type TrendingProps = {
-  trendings: {
-    id: number
-    image: string
-    name: string
-    year: number
-    category: string
-    rating: string
-  }[]
   isLoaded: boolean
 }
 
-const Trending: React.FC<TrendingProps> = ({ trendings, isLoaded }) => {
+const Trending: React.FC<TrendingProps> = ({ isLoaded }) => {
+  const [trendings, setTrendings] = useState<filmType[]>([]);
 
+  useEffect(() => {
+    axios.get('https://63dafdb7b8e69785e479f6d2.mockapi.io/trending')
+    .then(res => setTrendings(res.data))
+},[])
 
   return (
     <div className="trending">

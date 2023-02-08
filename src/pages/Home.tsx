@@ -7,16 +7,12 @@ import { useAppDispatch } from '../redux/store';
 import { filtersSliceState, selectFilters, setCurrentPage } from '../redux/slices/filterSlice';
 
 const Home: React.FC = () => {
-    const [trendings, setTrendings] = useState([]);
     const {filmsItems, isLoaded} = useSelector(selectFilms);
     const dispatch = useAppDispatch();
     const {searchValue, category, currentPage} = useSelector(selectFilters);
 
 
-    useEffect(() => {
-        axios.get('https://63dafdb7b8e69785e479f6d2.mockapi.io/trending')
-        .then(res => setTrendings(res.data))
-    },[])
+    
 
     useEffect(() => {
         const options: filtersSliceState = {searchValue, category, currentPage}
@@ -33,7 +29,7 @@ const Home: React.FC = () => {
             <Header />
             <div className="content">
                 <SearchBar />
-                <Trending trendings={trendings} isLoaded={isLoaded}/>
+                <Trending isLoaded={isLoaded}/>
                 <Recomended films={filmsItems} isLoaded={isLoaded}/>
                 <Pagination onChangePage={onChangePage} currentPage={currentPage}/>
             </div>

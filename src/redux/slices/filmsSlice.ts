@@ -6,7 +6,7 @@ import { filtersSliceState } from "./filterSlice";
 
 
 export const fetchFilms = createAsyncThunk('films/fetchFilms', async ({searchValue, category, currentPage}: filtersSliceState) => {
-    const {data} = await axios.get<filmType[]>(`https://63dafdb7b8e69785e479f6d2.mockapi.io/films?${`p=${currentPage}&l=8`}${searchValue ? `&search=${searchValue}` : ''}${category ? `category=${category}`: ''}`)
+    const {data} = await axios.get<filmType[]>(`https://63dafdb7b8e69785e479f6d2.mockapi.io/films?${`p=${currentPage}&l=8`}${searchValue ? `&search=${searchValue}` : ''}${category ? `&category=${category}`: ''}`)
     return data;
 });
 
