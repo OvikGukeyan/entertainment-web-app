@@ -29,7 +29,7 @@ const FilmBlock: React.FC<FilmBlockProps> = ({ id, image, name, year, category, 
             </div>
             <div className='icon-play-wrapper'>
                 <div className='icon-play'>
-                    <img className='play' src="./assets/icon-play.svg" alt=" " />
+                    <img src="./assets/icon-play.svg" alt=" " />
                     <p>Play</p>
                 </div>
             </div>

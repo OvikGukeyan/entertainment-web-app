@@ -3,13 +3,12 @@ import Home from './pages/Home';
 import { Routes, Route } from "react-router-dom";
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
-import Bookmarks from './pages/Bookmarks/Bookmarks';
+import Bookmarks from './pages/Bookmarks';
 
 
 function App() {
   return (
     <div className="wrapper">
-
       <Routes>
         <Route 
           path=''
@@ -28,9 +27,7 @@ function App() {
           element={<Bookmarks/>}
         />
       </Routes>
-      
     </div>
-
   );
 }
 

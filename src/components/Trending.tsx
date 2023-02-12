@@ -19,7 +19,7 @@ const Trending: React.FC<TrendingProps> = ({ isLoaded }) => {
     <div className="trending">
       <h2>Trending</h2>
       <div className="slider">
-        {isLoaded ? trendings.map(obj => <FilmBlock {...obj} className={'slide'}/>): [...Array(3)].map((_, index) => <TrendFilmLoader key={index} />)}
+        {isLoaded ? trendings.map((obj, ind) => <FilmBlock key={ind} {...obj} className={'slide'}/>): [...Array(3)].map((_, index) => <TrendFilmLoader key={index} />)}
       </div>
     </div>
   )

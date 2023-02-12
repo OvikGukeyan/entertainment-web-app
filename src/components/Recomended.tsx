@@ -14,7 +14,7 @@ const Recomended: React.FC<RecomendedProps> = ({films, isLoaded}) => {
     <div className="recomended">
       <h2>Recommended for you</h2>
       <div className="recom-films">
-     {isLoaded ? films.map(obj => <FilmBlock {...obj} className={'slide__recom'}/>): [...Array(8)].map((_, index) => <RecFilmLoader key={index} />)}
+     {isLoaded ? films.map((obj, ind) => <FilmBlock key={ind} {...obj} className={'slide__recom'}/>): [...Array(8)].map((_, index) => <RecFilmLoader key={index} />)}
       </div>
     </div>
   )

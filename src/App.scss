@@ -135,7 +135,7 @@ h2 {
   position: absolute;
   right: 24px;
   top: 16px;
-  background: #10141E;
+  background-color: #10141E;
   mix-blend-mode: normal;
   opacity: 0.5;
   display: flex;
@@ -143,6 +143,7 @@ h2 {
   justify-content: center;
   cursor: pointer;
   z-index: 2;
+
 }
 
 
@@ -153,7 +154,6 @@ h2 {
   height: 100%;
   position: absolute;
   display: flex;
-
   opacity: 0;
 
   &:hover {
@@ -182,8 +182,6 @@ h2 {
   p {
     margin-right: 24px;
   }
-
-
 
 }
 
