@@ -2,12 +2,21 @@ import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 import { filmType } from "./filmsSlice";
 
+
+const getBookmarksFromLS = () => {
+    const data = localStorage.getItem('bookmarks');
+    const bookmarkItems = data ? JSON.parse(data): {};
+    return bookmarkItems
+}
+
 type bookmarksSliceState = {
     bookmarkItems: filmType[]
 }
 
+const bookmarkItems = getBookmarksFromLS()
+
 const initialState: bookmarksSliceState = {
-    bookmarkItems: []
+    bookmarkItems
 }
 
 const bookmarksSlice = createSlice({
@@ -18,6 +27,7 @@ const bookmarksSlice = createSlice({
             !state.bookmarkItems.find(obj => obj.id === action.payload.id) ?
                 state.bookmarkItems.push(action.payload) :
                 state.bookmarkItems = state.bookmarkItems.filter(obj => obj.id !== action.payload.id)
+            getBookmarksFromLS();
 
         }
     }

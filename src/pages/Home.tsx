@@ -13,7 +13,6 @@ const Home: React.FC = () => {
     const {searchValue, category, currentPage} = useSelector(selectFilters);
     const isMounted = useRef(false);
     const navigate = useNavigate();
-    console.log(isMounted)
     
     useEffect(() => {
         const options: filtersSliceState = {searchValue, category, currentPage}
