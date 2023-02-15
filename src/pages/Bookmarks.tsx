@@ -12,7 +12,7 @@ const Bookmarks: React.FC = () => {
       <div className="recomended">
         <h2>{bookmarkItems.length ? 'Bookmarked': 'You dont have any bookmarks'}</h2>
         <div className="recom-films">
-          {bookmarkItems.map(obj => <FilmBlock {...obj} className={'slide__recom'} />)}
+          {bookmarkItems.map((obj, ind) => <FilmBlock key={ind} {...obj} className={'slide__recom'} />)}
         </div>
       </div>
     </>
