@@ -25,7 +25,7 @@ const FilmBlock: React.FC<FilmBlockProps> = ({ id, image, name, year, category, 
     return (
         <div className={className}>
             <div onClick={onBookmarkClick} className="bookmark">
-                <img src={bookmarkItems.find(obj => obj.id === id) ? "./assets/icon-bookmark-full.svg" : "./assets/icon-bookmark-empty.svg"} alt="bookmark" />
+                <img src={bookmarkItems.length && bookmarkItems.find(obj => obj.id === id) ? "./assets/icon-bookmark-full.svg" : "./assets/icon-bookmark-empty.svg"} alt="bookmark" />
             </div>
             <div className='icon-play-wrapper'>
                 <div className='icon-play'>
