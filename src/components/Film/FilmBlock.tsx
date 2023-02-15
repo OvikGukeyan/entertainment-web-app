@@ -16,7 +16,7 @@ const FilmBlock: React.FC<FilmBlockProps> = ({ id, image, name, year, category, 
     const [bookmarked, setBookmarked] = useState(false);
     const dispatch = useDispatch();
     const {bookmarkItems} = useSelector(selectBookmarks);
-
+    console.log(bookmarkItems)
     const onBookmarkClick = () => {
         setBookmarked(!bookmarked);
         dispatch(setBookmarkItems({ id, image, name, year, category, rating, className }))
@@ -25,7 +25,7 @@ const FilmBlock: React.FC<FilmBlockProps> = ({ id, image, name, year, category, 
     return (
         <div className={className}>
             <div onClick={onBookmarkClick} className="bookmark">
-                <img src={bookmarkItems?.find(obj => obj.id === id) ? "./assets/icon-bookmark-full.svg" : "./assets/icon-bookmark-empty.svg"} alt="bookmark" />
+                <img src={bookmarkItems.find(obj => obj.id === id) ? "./assets/icon-bookmark-full.svg" : "./assets/icon-bookmark-empty.svg"} alt="bookmark" />
             </div>
             <div className='icon-play-wrapper'>
                 <div className='icon-play'>
