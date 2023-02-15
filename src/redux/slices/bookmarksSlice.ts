@@ -16,7 +16,7 @@ type bookmarksSliceState = {
 const bookmarkItems = getBookmarksFromLS()
 
 const initialState: bookmarksSliceState = {
-    bookmarkItems
+    bookmarkItems: bookmarkItems.length ? bookmarkItems : []
 }
 
 const bookmarksSlice = createSlice({

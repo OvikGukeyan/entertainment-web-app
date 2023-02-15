@@ -13,12 +13,10 @@ type FilmBlockProps = {
 }
 
 const FilmBlock: React.FC<FilmBlockProps> = ({ id, image, name, year, category, rating, className }) => {
-    const [bookmarked, setBookmarked] = useState(false);
     const dispatch = useDispatch();
     const {bookmarkItems} = useSelector(selectBookmarks);
     console.log(bookmarkItems)
     const onBookmarkClick = () => {
-        setBookmarked(!bookmarked);
         dispatch(setBookmarkItems({ id, image, name, year, category, rating, className }))
     }
 
