@@ -5,7 +5,7 @@ import { filmType } from "./filmsSlice";
 
 const getBookmarksFromLS = () => {
     const data = localStorage.getItem('bookmarks');
-    const bookmarkItems = data ? JSON.parse(data): {};
+    const bookmarkItems = data ? JSON.parse(data): [];
     return bookmarkItems
 }
 
@@ -27,8 +27,6 @@ const bookmarksSlice = createSlice({
             !state.bookmarkItems.find(obj => obj.id === action.payload.id) ?
                 state.bookmarkItems.push(action.payload) :
                 state.bookmarkItems = state.bookmarkItems.filter(obj => obj.id !== action.payload.id)
-            getBookmarksFromLS();
-
         }
     }
 });
