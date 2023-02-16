@@ -10,6 +10,8 @@ export const fetchFilms = createAsyncThunk('films/fetchFilms', async ({searchVal
     return data;
 });
 
+
+
 export type filmType = {
     id: number
     image: string

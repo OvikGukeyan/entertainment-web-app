@@ -17,7 +17,7 @@ const bookmarkItems = getBookmarksFromLS()
 
 const initialState: bookmarksSliceState = {
     bookmarkItems: bookmarkItems.length ? bookmarkItems : []
-}
+};
 
 const bookmarksSlice = createSlice({
     name: 'bookmarks',
