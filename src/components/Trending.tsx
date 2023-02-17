@@ -17,10 +17,12 @@ const Trending: React.FC<TrendingProps> = ({ films, isLoaded }) => {
   // },[])
 
   useEffect(() => {
-    const trend = [];
+    const trend: React.SetStateAction<filmType[]> = [];
     while(trend.length < 5) {
       const randomFilm = Math.floor(Math.random() * films.length)
-      trend.push(films[randomFilm])
+      if(!trend.find(item => item?.id === films[randomFilm]?.id)) {
+        trend.push(films[randomFilm])
+      }
     }
     setTrendings(trend)
     console.log(trend)
