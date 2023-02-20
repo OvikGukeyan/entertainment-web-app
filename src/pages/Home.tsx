@@ -48,7 +48,7 @@ const Home: React.FC = () => {
             {loadingRejected ? <h2>Something went wrong!!</h2> :
                 <div className="content">
                     <SearchBar />
-                    <Trending films={filmsItems} isLoaded={isLoaded} />
+                    <Trending />
                     <Recomended films={filmsItems} isLoaded={isLoaded} />
                     <Pagination onChangePage={onChangePage} currentPage={currentPage} />
                 </div>

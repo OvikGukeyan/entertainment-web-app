@@ -1,32 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { FilmBlock, TrendFilmLoader } from './';
-// import axios from 'axios';
-import { filmType } from '../redux/slices/filmsSlice';
+import { useSelector } from 'react-redux';
+import { useAppDispatch } from '../redux/store';
+import { fetchTrendings, selectTrendings } from '../redux/slices/trendingsSlice';
 
-type TrendingProps = {
-  films: filmType[]
-  isLoaded: boolean
-}
 
-const Trending: React.FC<TrendingProps> = ({ films, isLoaded }) => {
-  const [trendings, setTrendings] = useState<filmType[]>([]);
 
-  //   useEffect(() => {
-  //     axios.get('https://63dafdb7b8e69785e479f6d2.mockapi.io/trending')
-  //     .then(res => setTrendings(res.data))
-  // },[])
+const Trending: React.FC = () => {
+  // const [trendings, setTrendings] = useState<filmType[]>([]);
+  const dispatch = useAppDispatch();
+  const {trendingsItems, isLoaded} = useSelector(selectTrendings);
 
-  useEffect(() => {
-    const trend: React.SetStateAction<filmType[]> = [];
-    while(trend.length < 5) {
-      const randomFilm = Math.floor(Math.random() * films.length)
-      if(!trend.find(item => item?.id === films[randomFilm]?.id)) {
-        trend.push(films[randomFilm])
-      }
-    }
-    setTrendings(trend)
-    console.log(trend)
-  }, [films])
+    useEffect(() => {
+      dispatch(fetchTrendings())
+  },[])
 
 
 
@@ -34,7 +21,9 @@ const Trending: React.FC<TrendingProps> = ({ films, isLoaded }) => {
     <div className="trending">
       <h2>Trending</h2>
       <div className="slider">
-        {isLoaded ? trendings.map((obj, ind) => <FilmBlock key={ind} {...obj} className={'slide'} />) : [...Array(3)].map((_, index) => <TrendFilmLoader key={index} />)}
+        {isLoaded ? 
+        trendingsItems.map((obj, ind) => <FilmBlock key={ind} {...obj} className={'slide'} />) 
+        : [...Array(3)].map((_, index) => <TrendFilmLoader key={index} />)}
       </div>
     </div>
   )
