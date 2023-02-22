@@ -30,11 +30,9 @@ const Header: React.FC = () => {
 
     return (
         <header className={styles.header}>
-            <div className={styles.logo}>
-                <Link to={'/'}>
-                    <img src="./assets/logo.svg" alt="logo" />
-                </Link>
-            </div>
+            <Link to={'/'}>
+                <img className={styles.logo} src="./assets/logo.svg" alt="logo" />
+            </Link>
             {location.pathname !== '/bookmarks' &&
                 <nav>
                     <svg onClick={() => dispatch(setCategory(null))} width="20" height="20" xmlns="http://www.w3.org/2000/svg"><path fill={!category && '#fff'} d="M8 0H1C.4 0 0 .4 0 1v7c0 .6.4 1 1 1h7c.6 0 1-.4 1-1V1c0-.6-.4-1-1-1Zm0 11H1c-.6 0-1 .4-1 1v7c0 .6.4 1 1 1h7c.6 0 1-.4 1-1v-7c0-.6-.4-1-1-1ZM19 0h-7c-.6 0-1 .4-1 1v7c0 .6.4 1 1 1h7c.6 0 1-.4 1-1V1c0-.6-.4-1-1-1Zm0 11h-7c-.6 0-1 .4-1 1v7c0 .6.4 1 1 1h7c.6 0 1-.4 1-1v-7c0-.6-.4-1-1-1Z" /></svg>
@@ -46,11 +44,9 @@ const Header: React.FC = () => {
                     </Link>
                 </nav>
             }
-            <div className={styles.login}>
-                <Link to='signIn'>
-                    <img src="./assets/image-avatar.png" alt="" />
-                </Link>
-            </div>
+            <Link to='signIn'>
+                <img className={styles.login} src="./assets/image-avatar.png" alt="" />
+            </Link>
 
         </header>
     )

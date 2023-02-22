@@ -1,51 +1,63 @@
 .header {
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  min-width: 100px;
+  background-color: #161D2F;
+  border-radius: 20px;
+  align-items: center;
+  margin: 0 35px 35px 0;
+  justify-content: space-between;
+  padding: 35px 0 35px 0;
+
+
+  .logo {
+    cursor: pointer;
+
+    
+  }
+
+  nav {
     display: flex;
     flex-direction: column;
-    height: 90vh;
-    min-width: 100px;
-    background-color: #161D2F;
-    border-radius: 20px;
-    align-items: center;
-    margin: 0 35px 35px 0;
-  
-    .logo {
-      margin: 35px 0 75px 0;
+    height: 200px;
+    width: 20px;
+    justify-content: space-between;
+
+    svg {
       cursor: pointer;
+      fill: #5a698f;
+
+      &:hover {
+        fill: #fff;
+      }
+
     }
-  
-    nav {
-      display: flex;
-      flex-direction: column;
-      height: 200px;
-      width: 20px;
-      justify-content: space-between;
-  
-      svg {
-        cursor: pointer;
-        fill: #5a698f;
-  
-        &:hover {
-          fill: #fff;
-        }
-  
-      }
-  
-      .activeSvg {
-        fill: #FC4747;
-      }
+
+    .activeSvg {
+      fill: #FC4747;
     }
-  
-    .login {
-      margin-bottom: 35px;
-      cursor: pointer;
-      margin-top: auto;
-  
-      img {
-        height: 40px;
-        width: 40px;
-  
-      }
+
+    @media (max-width: 1400px) {
+      flex-direction: row;
+      width: 173px;
+      height: 20px;
     }
   }
-  
-  
+
+  .login {
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+
+   
+  }
+
+  @media (max-width: 1400px) {
+    flex-direction: row;
+    height: 80px;
+    justify-content: space-between;
+    padding: 0 35px 0 35px;
+    margin: 0;
+  }
+}

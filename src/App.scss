@@ -12,6 +12,10 @@ body {
   display: flex;
   flex-direction: row;
 
+  @media (max-width: 1400px) {
+    flex-direction: column;
+  }
+
 }
 
 
@@ -30,7 +34,7 @@ h2 {
 
 .slider {
   height: 230px;
-  max-width: 87.3vw;
+  width: 87.3vw;
   display: grid;
   grid-template: 1fr / repeat(5, 1fr);
   gap: 40px;
@@ -42,6 +46,10 @@ h2 {
 
   &::-webkit-scrollbar {
     display: none;
+  }
+
+  @media (max-width: 1400px) {
+    width: 100%;
   }
 }
 
@@ -116,6 +124,18 @@ h2 {
         margin-top: 60px;
       }
     }
+
+  }
+
+  @media (max-width: 1400px) {
+    width: 100%;
+    grid-template: 1fr / repeat(3, 1fr);
+
+  }
+
+  @media (max-width: 950px) {
+    width: 100%;
+    grid-template: 1fr / repeat(2, 1fr);
 
   }
 }
