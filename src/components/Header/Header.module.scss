@@ -14,6 +14,12 @@
   .logo {
     cursor: pointer;
 
+    @media (max-width: 650px) {
+      height: 20px;
+      width: 25px;
+    }
+   
+
     
   }
 
@@ -32,6 +38,9 @@
         fill: #fff;
       }
 
+      
+     
+
     }
 
     .activeSvg {
@@ -43,6 +52,8 @@
       width: 173px;
       height: 20px;
     }
+
+    
   }
 
   .login {
@@ -50,6 +61,10 @@
     height: 40px;
     width: 40px;
 
+    @media (max-width: 650px) {
+      height: 24px;
+      width: 24px;
+    }
    
   }
 
@@ -59,5 +74,10 @@
     justify-content: space-between;
     padding: 0 35px 0 35px;
     margin: 0;
+  }
+
+  @media (max-width: 650px) {
+    padding: 0 17px 0 17px;
+    border-radius: 0;
   }
 }
