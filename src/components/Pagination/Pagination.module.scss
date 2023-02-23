@@ -9,7 +9,7 @@
             line-height: 42px;
             width: 45px;
             height: 45px;
-            border-radius: 30px;
+            border-radius: 50%;
             margin-right: 10px;
             cursor: pointer;
             color: #5a698f;
@@ -20,7 +20,16 @@
                 background-color: #5a698f;
                 color: #fff;
             }
+
+            @media (max-width: 650px) {
+                height: 30px;
+                width: 30px;
+                line-height: 28px;
+
+            }
         }
+
+
     }
 
     :global {
