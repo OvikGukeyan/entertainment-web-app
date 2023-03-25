@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { selectBookmarks, setBookmarkItems } from '../../redux/slices/bookmarksSlice'
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectBookmarks, setBookmarkItems } from '../../redux/slices/bookmarksSlice';
 
 type FilmBlockProps = {
     id: number
@@ -9,7 +9,7 @@ type FilmBlockProps = {
     year: number
     category: string
     rating: string
-    className: string
+    className: 'slide__recom' | 'slide'
 }
 
 const FilmBlock: React.FC<FilmBlockProps> = ({ id, image, name, year, category, rating, className }) => {

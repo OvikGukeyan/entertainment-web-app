@@ -1,12 +1,14 @@
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+
 import './App.scss';
 import Home from './pages/Home';
-import { Routes, Route } from "react-router-dom";
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import Bookmarks from './pages/Bookmarks';
 
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="wrapper">
       <Routes>

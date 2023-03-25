@@ -18,9 +18,9 @@
       height: 20px;
       width: 25px;
     }
-   
 
-    
+
+
   }
 
   nav {
@@ -32,15 +32,12 @@
 
     svg {
       cursor: pointer;
-      fill: #5a698f;
 
       &:hover {
-        fill: #fff;
+        path {
+          fill: #FFF
+        }
       }
-
-      
-     
-
     }
 
     .activeSvg {
@@ -53,7 +50,7 @@
       height: 20px;
     }
 
-    
+
   }
 
   .login {
@@ -65,7 +62,7 @@
       height: 24px;
       width: 24px;
     }
-   
+
   }
 
   @media (max-width: 1400px) {

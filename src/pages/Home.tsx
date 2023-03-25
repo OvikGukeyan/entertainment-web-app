@@ -1,11 +1,12 @@
 import React, { useEffect, useRef } from 'react';
-import { SearchBar, Trending, Recomended, Header, Pagination } from '../components';
-import { fetchFilms, selectFilms } from '../redux/slices/filmsSlice';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '../redux/store';
-import { filtersSliceState, selectFilters, setCurrentPage, setFilters } from '../redux/slices/filterSlice';
 import qs from 'qs';
 import { useNavigate } from 'react-router-dom';
+
+import { SearchBar, Trending, Recomended, Header, Pagination } from '../components';
+import { fetchFilms, selectFilms } from '../redux/slices/filmsSlice';
+import { filtersSliceState, selectFilters, setCurrentPage, setFilters } from '../redux/slices/filterSlice';
 
 const Home: React.FC = () => {
     const { filmsItems, isLoaded, loadingRejected } = useSelector(selectFilms);
@@ -17,14 +18,14 @@ const Home: React.FC = () => {
     useEffect(() => {
         const options: filtersSliceState = { searchValue, category, currentPage }
         dispatch(fetchFilms(options))
-    }, [searchValue, category, currentPage]);
+    }, [searchValue, category, currentPage, dispatch]);
 
     useEffect(() => {
         if (window.location.search) {
             const params = qs.parse(window.location.search.substring(1))
             dispatch(setFilters(params))
         }
-    }, [])
+    }, [dispatch])
 
     useEffect(() => {
         if (isMounted.current) {
@@ -35,7 +36,7 @@ const Home: React.FC = () => {
             navigate(`/?${queryString}`);
         }
         isMounted.current = true;
-    }, [category, currentPage])
+    }, [category, currentPage, navigate])
 
     const onChangePage = (value: number) => {
         dispatch(setCurrentPage(value))

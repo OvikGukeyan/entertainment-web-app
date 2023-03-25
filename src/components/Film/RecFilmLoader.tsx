@@ -2,7 +2,7 @@ import React from 'react';
 import ContentLoader from 'react-content-loader';
 
 
-const RecFilmLoader = () => {
+const RecFilmLoader: React.FC = () => {
   return (
     <ContentLoader 
     speed={2}
